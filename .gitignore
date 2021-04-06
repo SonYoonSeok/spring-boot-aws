@@ -19,7 +19,7 @@ bin/
 
 ### IntelliJ IDEA ###
 .idea
-.gradle
+build.gradle
 *.iws
 *.iml
 *.ipr
