@@ -2,13 +2,16 @@ package spring.useAws.service.posts;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import spring.useAws.domain.posts.Posts;
 import spring.useAws.domain.posts.PostsRepository;
+import spring.useAws.web.Dto.PostsListResponseDto;
 import spring.useAws.web.Dto.PostsResponceDto;
 import spring.useAws.web.Dto.PostsSaveRequestDto;
 import spring.useAws.web.Dto.PostsUpdateRequestDto;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -35,5 +38,10 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponceDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
     }
 }
