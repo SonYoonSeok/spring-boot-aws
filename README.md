@@ -1,2 +1,2 @@
 # HowToUseAWS
-Web Service using spring boot, AWS
+Web Service using Spring boot, AWS
