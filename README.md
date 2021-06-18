@@ -1,2 +1,2 @@
-# HowToUseAWS
-Web Service using Spring boot, AWS
+# springboot-aws
+스프링 부트와 AWS로 혼자 구현하는 웹 서비스 책 정리
